@@ -1,60 +1,56 @@
 ﻿using System.ComponentModel;
-using Sprites;
+using System.Drawing;
+
 namespace Sprites.ShipModels
 {
     public class ShipModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged = delegate { }; // Inicialización
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+
         private int _width = 100;
-        private int _height = 100; 
+        private int _height = 100;
+        private int _playerX = 100;
+        private int _playerY = 100;
+        private Image _currentSprite;
 
-        private int playerX;
+        public int Width => _width;
+        public int Height => _height;
 
-        public int Width { 
-            get { return _width; }
-        }
-
-        public int Height
-        {
-            get { return _height; }
-        }
         public int PlayerX
         {
-            get => playerX;
+            get => _playerX;
             set
             {
-                if (playerX != value)
+                if (_playerX != value)
                 {
-                    playerX = value;
+                    _playerX = value;
                     OnPropertyChanged(nameof(PlayerX));
                 }
             }
         }
 
-        private int playerY;
         public int PlayerY
         {
-            get => playerY;
+            get => _playerY;
             set
             {
-                if (playerY != value)
+                if (_playerY != value)
                 {
-                    playerY = value;
+                    _playerY = value;
                     OnPropertyChanged(nameof(PlayerY));
                 }
             }
         }
 
-        private string currentDirection = "Idle";
-        public string CurrentDirection
+        public Image CurrentSprite
         {
-            get => currentDirection;
+            get => _currentSprite;
             set
             {
-                if (currentDirection != value)
+                if (_currentSprite != value)
                 {
-                    currentDirection = value;
-                    OnPropertyChanged(nameof(CurrentDirection));
+                    _currentSprite = value;
+                    OnPropertyChanged(nameof(CurrentSprite));
                 }
             }
         }
@@ -64,15 +60,7 @@ namespace Sprites.ShipModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        // Métodos de movimiento
-        public void MoveUp()
-        {
-            PlayerY -= 10;  // Movimiento hacia arriba
-        }
-
-        public void MoveDown()
-        {
-            PlayerY += 10;  // Movimiento hacia abajo
-        }
+        public void MoveUp() => PlayerY -= 10;
+        public void MoveDown() => PlayerY += 10;
     }
 }

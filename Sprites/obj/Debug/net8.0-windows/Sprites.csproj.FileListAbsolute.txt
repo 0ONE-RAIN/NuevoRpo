@@ -1,0 +1,2 @@
+C:\Users\User\Videos\Sprites\obj\Debug\net8.0-windows\Sprites.Form1.resources
+C:\Users\User\Videos\Sprites\obj\Debug\net8.0-windows\Sprites.csproj.GenerateResource.cache

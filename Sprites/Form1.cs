@@ -1,45 +1,39 @@
-using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using Sprites.ViewModels; // Agregar el espacio de nombres de ViewModel
-using Sprites.ShipModels; // Asegúrate de que este using esté presente
+using Sprites.ViewModels;
 
 namespace Sprites
 {
     public partial class Form1 : Form
     {
-        private ShipViewModel viewModel;
+        private readonly ShipViewModel viewModel;
 
         public Form1()
         {
             InitializeComponent();
             viewModel = new ShipViewModel();
 
-            // Permitir que el formulario capture las teclas
-            this.KeyPreview = true;
+            // Configurar eventos
+            KeyDown += Form1_KeyDown;
+            KeyUp += Form1_KeyUp;
+            DoubleBuffered = true; // Para evitar parpadeo
 
-            // Suscribirse a cambios en el modelo
+            // Suscribirse a cambios
             viewModel.Ship.PropertyChanged += Ship_PropertyChanged;
         }
 
-        private void Ship_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        private void Ship_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(viewModel.Ship.PlayerX) ||
                 e.PropertyName == nameof(viewModel.Ship.PlayerY) ||
-                e.PropertyName == nameof(viewModel.Ship.CurrentDirection))
+                e.PropertyName == nameof(viewModel.Ship.CurrentSprite))
             {
-                Invalidate(); // Redibujar cuando haya cambios
+                Invalidate();
             }
         }
 
-        private new void KeyUp(object sender, KeyEventArgs e)  // Añadir 'new'
-        {
-            // Detener animación cuando no se presiona una tecla
-            viewModel.StopMovement();
-        }
-
-        private new void KeyDown(object sender, KeyEventArgs e)  // Añadir 'new'
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -52,16 +46,21 @@ namespace Sprites
             }
         }
 
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            viewModel.StopMovement();
+        }
+
         private void PaintEvent(object sender, PaintEventArgs e)
         {
-            Image sprite = viewModel.Ship.CurrentDirection;
+            var sprite = viewModel.Ship.CurrentSprite;
             if (sprite != null)
             {
                 e.Graphics.DrawImage(sprite,
-                                     viewModel.Ship.PlayerX,
-                                     viewModel.Ship.PlayerY,
-                                     viewModel.Ship.Width,
-                                     viewModel.Ship.Height);
+                    viewModel.Ship.PlayerX,
+                    viewModel.Ship.PlayerY,
+                    viewModel.Ship.Width,
+                    viewModel.Ship.Height);
             }
         }
     }

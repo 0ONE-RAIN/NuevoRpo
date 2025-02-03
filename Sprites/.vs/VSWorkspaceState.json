@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Images",
+    "\\Model",
+    "\\ViewModel"
   ],
-  "SelectedNode": "\\Sprites.sln",
+  "SelectedNode": "\\Sprites.csproj",
   "PreviewInSolutionExplorer": false
 }

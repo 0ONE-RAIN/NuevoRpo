@@ -8,16 +8,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
 	
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Images\Idle %285%29.png" />
-    <None Remove="Images\Idle.png" />
-    <None Remove="Images\Jump %282%29.png" />
-    <None Remove="Images\Jump.png" />
-    <None Remove="Images\Slide %284%29.png" />
-    <None Remove="Images\Slide.png" />
-    <None Remove="sound.wav" />
-  </ItemGroup>
   <ItemGroup>
     <Compile Update="Images\Resource1.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -31,6 +21,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+
   </ItemGroup>
+<ItemGroup>
+		<Content Include="sound.wav">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+</ItemGroup>
 
 </Project>
