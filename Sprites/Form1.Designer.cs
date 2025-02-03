@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            label1 = new Label();
             SuspendLayout();
             // 
-            // pictureBox1
+            // label1
             // 
-            pictureBox1.Image = Properties.Resources.Slide__6_;
-            pictureBox1.Location = new Point(233, 144);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(213, 191);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            label1.AutoSize = true;
+            label1.Location = new Point(71, 336);
+            label1.Name = "label1";
+            label1.Size = new Size(42, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Sprites";
+            
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(pictureBox1);
+            Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Paint += PaintEvent;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private Label label1;
     }
 }

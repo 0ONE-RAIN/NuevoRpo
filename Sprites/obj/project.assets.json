@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Pictures\\Sprites\\Sprites.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Videos\\Sprites\\Sprites.csproj",
       "projectName": "Sprites",
-      "projectPath": "C:\\Users\\User\\Pictures\\Sprites\\Sprites.csproj",
+      "projectPath": "C:\\Users\\User\\Videos\\Sprites\\Sprites.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Pictures\\Sprites\\obj\\",
+      "outputPath": "C:\\Users\\User\\Videos\\Sprites\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
